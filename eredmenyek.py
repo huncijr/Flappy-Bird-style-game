@@ -159,5 +159,4 @@ if __name__ == '__main__':
     window1.show()
     sys.exit(app1.exec_())
 
-# Mentési logika komment teszt
-# Mentési logika komment teszt
+
