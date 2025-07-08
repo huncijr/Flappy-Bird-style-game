@@ -36,7 +36,6 @@ class MainWindow(QMainWindow):
         self.update_coinok(0)
 
     def initUI(self):
-        # Create horizontal layout for the label (coin_pontok)
         hbox = QHBoxLayout()
         hbox.setContentsMargins(0, 10, 0, 0)  # Adjust margins for alignment
         hbox.addWidget(self.coin_pontok)
@@ -130,21 +129,20 @@ class MainWindow(QMainWindow):
                 beolvasas = file.read().splitlines()
                 total_coin = 0
                 for sor in beolvasas:
-                    parts = sor.split()  # Szétválasztjuk a számokat
+                    parts = sor.split() 
                     if len(parts) == 2:
-                        _, coin = map(int, parts)  # Az első érték a pont, a második a coin
+                        _, coin = map(int, parts) 
                         total_coin += coin
 
-                self.coinok.setText(str(total_coin))  # Az összesített coin kiírása
+                self.coinok.setText(str(total_coin))  
         except Exception as e:
             pass
         
     def inditas(self):
         self.hide()# Az ablak elrejtése
-        self.Eredmeny = futo(self.leallitas)  # Játék indítása, callback-ként a főmenü visszahívása
-
+        self.Eredmeny = futo(self.leallitas)  
     def leallitas(self):
-        self.show()  # A főmenü újra megjelenítése
+        self.show()  
 
     def eredmeny(self):
         self.hide()
@@ -162,5 +160,4 @@ if __name__ == '__main__':
     ex = MainWindow()
     ex.show()
     sys.exit(app.exec_())
-# Változás teszteléshez
-# Változás teszteléshez
+\
