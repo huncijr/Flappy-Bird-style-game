@@ -186,4 +186,4 @@ def fajl_torol():
     # else:
     #     print("a fajl nem talalhato")
 
-# Játéklogika teszt komment
+
