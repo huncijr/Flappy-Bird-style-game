@@ -3,6 +3,7 @@ from PyQt5.QtWidgets import QMainWindow, QApplication, QWidget, QLabel, QPushBut
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QFont
 
+
 class MainWindow1(QMainWindow):
     def __init__(self):
         super().__init__()

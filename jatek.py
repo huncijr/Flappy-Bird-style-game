@@ -3,6 +3,7 @@ import random
 import os
 import time
 
+
 # Screen settings
 szelesseg = 600
 magassag = 600
