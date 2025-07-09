@@ -85,7 +85,7 @@ class MainWindow1(QMainWindow):
         file_path = "C:/Users/hunor/Desktop/pontszam.txt"
         try:
             with open(file_path, "r") as file:
-                beolvasas = file.read().splitlines()  # Soronkénti beolvasás
+                beolvasas = file.read().splitlines()  
 
                 szoveg = ""
                 max_pont = 0
@@ -96,9 +96,9 @@ class MainWindow1(QMainWindow):
                 uj_index = 14 #
 
                 for i, pont in enumerate(beolvasas):
-                    pont = pont.strip()  # Felesleges szóközök eltávolítása
+                    pont = pont.strip()  
                     if not pont:
-                        continue  # Ha üres sor, lépjünk tovább
+                        continue
 
                     parts = pont.split()
                     if len(parts) != 2:
@@ -111,7 +111,7 @@ class MainWindow1(QMainWindow):
                         print(f"Hibás adat: {pont}")
                         continue
 
-                    # Ha elérjük a 12. meccset, resetelünk, de megtartjuk a max értékeket
+                   
                     if (i + 1) %13 == 0:
                         szoveg = ""
                         ujra_szamlalas = True  # Elindítjuk az újraszámolást
