@@ -123,7 +123,7 @@ class MainWindow(QMainWindow):
 
 
     def update_coinok(self, coin_szama):
-        file_path = "C:/Users/hunor/OneDrive/Asztali gép/pontszam.txt"
+        file_path = "pontszam.txt"
         try:
             with open(file_path, "r") as file:
                 beolvasas = file.read().splitlines()
@@ -139,7 +139,7 @@ class MainWindow(QMainWindow):
             pass
         
     def inditas(self):
-        self.hide()# Az ablak elrejtése
+        self.hide()
         self.Eredmeny = futo(self.leallitas)  
     def leallitas(self):
         self.show()  
