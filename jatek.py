@@ -37,8 +37,8 @@ coin = 0
 # Game texts
 Eredmeny = 0
 pygame.mixer.init()
-sound_effect1 = pygame.mixer.Sound(r"C:\Users\hunor\Desktop\Flappy Bird Project\\penclicking.mp3")
-sound_effect2 = pygame.mixer.Sound(r"C:\Users\hunor\Desktop\Flappy Bird Project\\ending.mp3")
+sound_effect1 = pygame.mixer.Sound(r"penclicking.mp3")
+sound_effect2 = pygame.mixer.Sound(r"ending.mp3")
 
 # Define functions
 def rajzolas(kepernyo, madar_y, csovek, Eredmeny, font):
@@ -49,10 +49,10 @@ def rajzolas(kepernyo, madar_y, csovek, Eredmeny, font):
         pygame.draw.rect(kepernyo, ZOLD, (csov[0], 0, csoveles, csov[1]))  # Felső cső
         pygame.draw.rect(kepernyo, ZOLD, (csov[0], csov[1] + csokozon, csoveles, magassag - csov[1] - csokozon))  # Alsó cső
 
-        if csov[2]:  # Csak akkor rajzoljuk a kört, ha a coin nincs összeszedve
-            kor_x = csov[0] + csoveles // 2  # A kör vízszintes pozíciója a cső közepén
-            kor_y = csov[1] + csokozon // 2  # A kör függőleges pozíciója a két cső közepén
-            pygame.draw.circle(kepernyo, PIROS, (kor_x, kor_y), 15, width=4)  # Piros kör
+        if csov[2]:  
+            kor_x = csov[0] + csoveles // 2 
+            kor_y = csov[1] + csokozon // 2  
+            pygame.draw.circle(kepernyo, PIROS, (kor_x, kor_y), 15, width=4)  
 
     score_text = font.render(f'Eredmeny: {Eredmeny * 10:03}', True, SARGA if Eredmeny >= 30 else (255, 255, 255))
     kepernyo.blit(score_text, (10, 10))
@@ -86,7 +86,7 @@ def csovelet(csovek, Eredmeny, coin, madar_x, madar_y):
         csov_magas = random.randint(50, magassag - csokozon - 50)
         csovek.append([szelesseg, csov_magas, True])  # Az új cső és egy flag a coinhoz
 
-    csovek_to_remove = []  # Lista az eltávolítandó csövekhez
+    csovek_to_remove = []  
 
     for csov in csovek:
         csov[0] -= 4
@@ -103,7 +103,7 @@ def csovelet(csovek, Eredmeny, coin, madar_x, madar_y):
                     sound_effect1.play()
                     Eredmeny += 1
                     coin += 1
-                    csov[2] = False  # A coin eltűnik a csőről
+                    csov[2] = False  
 
         if csov[0] + csoveles < 0:
             csovek_to_remove.append(csov)
@@ -146,7 +146,7 @@ def futo(callback):
         callback()
 
 def pontszam_mentese(Eredmeny, coin):
-    file_path = "C:/Users/hunor/Desktop/pontszam.txt"
+    file_path = "pontszam.txt"
     folder_path = os.path.dirname(file_path)
 
     if not os.path.exists(folder_path):
@@ -180,7 +180,7 @@ def ellenorzes(madar_y, csovek):
     return False
 
 def fajl_torol():
-    file_path = "C:/Users/hunor/Desktop/pontszam.txt"
+    file_path = "pontszam.txt"
     if os.path.exists(file_path):
         os.remove(file_path)
     # else:
